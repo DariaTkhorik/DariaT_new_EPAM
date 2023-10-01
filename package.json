@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "eslint ./ --fix",
+    "coverage": "c8 npm test"
   },
   "keywords": [],
   "author": "Daria Tkhorik",
