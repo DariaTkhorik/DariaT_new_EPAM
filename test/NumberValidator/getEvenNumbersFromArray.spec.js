@@ -24,5 +24,10 @@ describe('getEvenNumbersFromArray', () => {
       const validationResults = validator.getEvenNumbersFromArray([1, 3, 5, 7]);
       expect(validationResults).to.be.deep.equal([]);
     });
+    it('should return an error when provided array not of numbers', () => {
+      expect(() => {
+        validator.getEvenNumbersFromArray(['A', 'B', 'c']);
+      }).to.throw('[A', 'B', 'c] is not an array of "Numbers"');
+    });
   });
 });

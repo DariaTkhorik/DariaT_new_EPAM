@@ -20,9 +20,10 @@ describe('isInteger', () => {
   });
 
   describe('Negative test', () => {
-    it('should return false if value is integer', () => {
-      const validationResults = validator.isNumberEven(3);
-      expect(validationResults).to.be.equal(false);
+    it('should return an error when provided not a number', () => {
+      expect(() => {
+        validator.isInteger('A');
+      }).to.throw('[A] is not a number');
     });
   });
 });

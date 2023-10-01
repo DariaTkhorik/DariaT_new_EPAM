@@ -24,5 +24,10 @@ describe('isAllNumbers', () => {
       const validationResults = validator.isAllNumbers([1, 'o', 4]);
       expect(validationResults).to.be.equal(false);
     });
+    it('should return an error when provided not an array', () => {
+      expect(() => {
+        validator.isAllNumbers('A');
+      }).to.throw('[A] is not an array');
+    });
   });
 });
