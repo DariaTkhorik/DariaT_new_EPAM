@@ -8,5 +8,14 @@
   },
   "keywords": [],
   "author": "Daria Tkhorik",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.28.1"
+  },
+  "dependencies": {
+    "c8": "^8.0.1",
+    "mochawesome": "^7.1.3"
+  }
 }
