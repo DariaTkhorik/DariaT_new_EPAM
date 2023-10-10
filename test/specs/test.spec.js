@@ -11,18 +11,16 @@ import { expect, browser, $ } from '@wdio/globals'
 
 describe("Home Task 2", () => {
   beforeEach(async () => {
-    await browser.url("https://the-internet.herokuapp.com/")
+    await browser.url('');
   });
 
   it("Check page tittle", async () => {
-   await browser.url("https://the-internet.herokuapp.com/"); 
     const h1 = await $('div#content h1.heading');
 
     await expect(h1).toHaveText("Welcome to the-internet")
   });
 
-  // it("Broken Images", async () => {
-  //   await browser.url("https://the-internet.herokuapp.com/");
-  //   await $('a.broken_images').click();
-  // });
-})
+  it("click Broken Images", async () => {
+    await $$('li')[3].$('a').click();
+  });
+});
