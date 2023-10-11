@@ -21,7 +21,7 @@ describe("Home Task 2", () => {
   });
 
   it("click Broken Images", async () => {
-    await $$('li')[3].$('a').click();
+    await $('a[href="/broken_images"]').click();
    
     await expect(browser).toHaveUrl('https://the-internet.herokuapp.com/broken_images')
     const bodyTitle = await $('div.example h3')
@@ -30,7 +30,7 @@ describe("Home Task 2", () => {
   });
 
   it("check login form", async() => {
-    await $$('li')[20].$('a').click();
+    await $('a[href="/login"]').click();
     await $('#username').setValue('tom');
     await browser.pause(3000)
     await (await $('#username')).addValue('smith');
