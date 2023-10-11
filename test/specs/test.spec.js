@@ -32,9 +32,9 @@ describe("Home Task 2", () => {
   it("check login form", async() => {
     await $('a[href="/login"]').click();
     await $('#username').setValue('tom');
-    await browser.pause(3000)
+    // await browser.pause(3000)
     await (await $('#username')).addValue('smith');
-    await browser.pause(3000);
+    // await browser.pause(3000);
     await (await $('#password')).addValue('SuperSecretPassword!'); 
     await $('button.radius').click();
   })
@@ -49,4 +49,29 @@ describe("Home Task 2", () => {
     })
   })
 
+  // HOME TASK
+  // _WebdriverIO's Advanced commands
+  // 1.    Add scenario that utilizes execute() command
+  // 2.    Add scenario that utilizes waitUntil() command
+  // 3.    Add scenario that utilizes browser actions
+  
+  
+  // BONUS
+  // 4.    Add scenario that works with cookies and/or local storage
+  
+  // ACCEPTANCE CRITERIA
+  // 1.    execute() scenario is implemented
+  // 2.    waitUntil() scenario is implemented
+  // 3.    Browser actions scenario is implemented
+  
+
+  it ("execute the size of the tittle", async () => {
+    const tittle = await $('div#content h1.heading');
+    await browser.execute(function (tittle) {
+      tittle.style.color = "#FF0000";
+    }, tittle);
+    await browser.pause (3000);
+    });
+
+    
 });
