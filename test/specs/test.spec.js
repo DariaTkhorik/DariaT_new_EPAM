@@ -22,5 +22,31 @@ describe("Home Task 2", () => {
 
   it("click Broken Images", async () => {
     await $$('li')[3].$('a').click();
+   
+    await expect(browser).toHaveUrl('https://the-internet.herokuapp.com/broken_images')
+    const bodyTitle = await $('div.example h3')
+    
+    await expect(bodyTitle).toHaveText('Broken Images')
   });
+
+  it("check login form", async() => {
+    await $$('li')[20].$('a').click();
+    await $('#username').setValue('tom');
+    await browser.pause(3000)
+    await (await $('#username')).addValue('smith');
+    await browser.pause(3000);
+    await (await $('#password')).addValue('SuperSecretPassword!'); 
+    await $('button.radius').click();
+  })
+
+  it('Wait until text has changed', async () => {
+    const elem = await $('div#content h1.heading')
+    await browser.waitUntil(async function () {
+      return (await elem.getText()) === 'Welcome to the-internet'
+    }, {
+      timeout: 5000,
+      timeoutMsg: 'error'
+    })
+  })
+
 });
