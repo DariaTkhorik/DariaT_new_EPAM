@@ -10,7 +10,7 @@
 import { expect, browser, $ } from '@wdio/globals'
 
 describe("Home Task 2", () => {
-  beforeEach(async () => {
+  beforeEach(async() => {
     await browser.url('');
   });
 
@@ -29,7 +29,7 @@ describe("Home Task 2", () => {
     await expect(bodyTitle).toHaveText('Broken Images')
   });
 
-  it("check login form", async() => {
+  it("check login form", async () => {
     await $('a[href="/login"]').click();
     await $('#username').setValue('tom');
     // await browser.pause(3000)
@@ -70,8 +70,27 @@ describe("Home Task 2", () => {
     await browser.execute(function (tittle) {
       tittle.style.color = "#FF0000";
     }, tittle);
-    await browser.pause (3000);
+    // await browser.pause (3000);
     });
 
-    
+  it ("drag and drop", async () => {
+    await $('a[href="/drag_and_drop"]').click();
+    const elem1 = await $('div#column-a');
+    const elem2 = await $('div#column-b');
+    await elem1.dragAndDrop(elem2);
+    await elem1.dragAndDrop({ x: 100, y: 200 })
+    // await browser.pause (3000);
+  })
+
+  it ('set cookies', async () => {
+    await browser.setCookies([
+      {
+        name: "customCookie", 
+        value: "42"
+      }
+    ]);
+    const cookie = await browser.getCookies(["customCookie"]); 
+    console.log("Cookie value");
+    console.dir(cookie);
+  })
 });
